@@ -1,0 +1,379 @@
+ABOUT PYTEST FRAMEWORK
+----------------------
+
+https://m365.cloud.microsoft/chat/conversation/13071cbf-9567-4f5c-9c0b-24e2373401a4?fromcode=cmc&redirectid=B0535320493B43818D9C958403D21FC1&auth=2&internalredirect=CCM&origindomain=CCM
+
+
+
+https://4d5006ec.isolation.zscaler.com/profile/24b8ab0a-59a4-42c6-bc94-23342a75840c/zia-session/?controls_id=97c959cd-b20b-4375-8e4e-4183a03e7be3&region=bom&tenant=ce753994dc24&user=728a2a7b6ee0ab2e3c60753fbffeb3144687d0ffc929a076f9079c723bd34774&original_url=https%3A%2F%2Fchatgpt.com%2Fc%2F6948fff2-c464-8323-b201-9067ee964395&key=sh-1&hmac=6d518a4bec571f1a105701bd7d902eef386090f6f155a3579649224887ba4805
+
+
+
+https://4d5006ec.isolation.zscaler.com/profile/24b8ab0a-59a4-42c6-bc94-23342a75840c/zia-session/?controls_id=c522e1ba-9eb7-4eb9-8982-367153d3eeaa&region=bom&tenant=ce753994dc24&user=728a2a7b6ee0ab2e3c60753fbffeb3144687d0ffc929a076f9079c723bd34774&original_url=https%3A%2F%2Fchatgpt.com%2Fc%2F6942931e-b4d0-8320-8e64-a38b6c894ea9&key=sh-1&hmac=67c037a4a16f18394beaff8766ec10d6dff9b0fbeae8f47ec96c1fbc43263101
+
+
+
+
+
+
+1️⃣ What is a Pytest Framework?
+
+A pytest framework is a structured way to organize:
+
+Test cases
+
+Test data
+
+Configuration
+
+Utilities
+
+Reports
+
+Logs
+
+So that your project is:
+✅ Scalable
+✅ Maintainable
+✅ Reusable
+✅ Easy to modify
+
+
+
+Py-test is a software testing framework in Python (like JUnit, TestNG for JAVA/JAVASCRIPT)
+
+Why Py-test
+
+Ease to Use
+Auto detect the tests
+Grouping/Marking tests
+Uses Python's assert keyword
+Can run tests written for unittest or nose
+CI/CD integration
+Good features - Fixtures, parameterize etc
+Good Community support and actively developed
+
+Key advantage: Pytest makes it extremely easy to write tests compared to Python’s built‑in unittest module.
+
+
+
+"pip freeze > requirements.txt (which adds all the packages to the req file)
+ The __init__.py file is used to create a same file name in multiple directories or in different files with same name."
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🆚 Why pytest over unittest?
+Below is a breakdown of why pytest is preferred in most modern Python projects:
+
+1️⃣ Much simpler syntax
+unittest requires classes and boilerplate code.
+pytest allows simple functions — no classes required.
+
+--------------------------------------
+Example: Same test in both frameworks
+👉 Using unittest
+
+import unittest
+
+class TestMath(unittest.TestCase):
+
+    def test_add(self):
+        self.assertEqual(1 + 2, 3)
+
+if __name__ == '__main__':
+    unittest.main()
+
+--------------------------------------
+
+👉 Using pytest
+
+def test_add():
+    assert 1 + 2 == 3
+
+🔹 No classes
+🔹 No boilerplate
+🔹 Just simple functions
+
+
+
+2️⃣ Auto-discovery of tests
+pytest automatically finds tests based on:
+
+File name starting with test_
+Function name starting with test_
+
+No need to manually register tests like in unittest.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+3️⃣ More powerful assertions
+In unittest, you use methods like:
+
+assertEqual()
+assertTrue()
+assertIn()
+…
+
+In pytest → just use normal assert, which gives excellent error messages.
+
+def test_numbers():
+    assert (5 + 5) == 11    # pytest shows exact difference on failure
+``
+
+4️⃣ Fixture support
+pytest fixtures are powerful for creating reusable test setup, such as:
+
+DB connection setup
+API client session
+
+
+6️⃣ Better test organization
+pytest supports:
+
+Test classes
+Test modules
+Test directories
+Shared fixtures
+
+Very easy to scale for large automation projects.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+🎯 Summary
+
+Topic				Meaning
+Assertion			Condition that must be true
+
+Purpose				Validate correctness automatically
+
+Pytest assertion		Uses Python assert
+
+Types				Equality, comparison, exception, membership, identity, float, collections
+
+Why powerful			Detailed error messages + simple syntax
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 Usage of Test Suites in pytest
+Here are the main use-cases of suites in pytest.
+
+1️⃣ Run the entire test suite
+
+pytest
+
+Pytest will collect all tests and run them as one suite.
+
+2️⃣ Run a specific file (partial test suite)
+
+pytest test_math.py
+
+This runs only the tests inside test_math.py.
+
+3️⃣ Run tests inside a directory (modular suite)
+
+pytest tests/api/
+
+Useful in microservices and DevOps CI/CD pipelines.
+
+4️⃣ Run a specific test class
+
+pytest test_math.py::TestOperationsShow 
+
+5️⃣ Run a specific test function
+
+pytest test_math.py::test_add
+
+
+💡 Use-Case Examples in DevOps (Your Context)
+✔ Smoke suite
+Quick checks before deployment.
+✔ Regression suite
+Run large tests before release.
+✔ API test suite
+For microservices testing.
+✔ Unit test suite
+Small, fast tests for each module.
+✔ Integration test suite
+Database + API + service integration tests.
+Pytest makes it very easy to organize all these with directory structure + markers.
+
+
+🎯 Final Summary
+
+Concept				Meaning
+
+Test Suite			A collection of tests executed together	
+
+Pytest suite			Auto-collected from test files/functions
+
+How created?			Naming convention + directories + markers
+
+Use-cases			Organize tests, control test execution, CI/CD groups
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+ABOUT FIXTURES
+--------------
+
+import pytest
+
+# Define a fixture
+@pytest.fixture
+def sample_data():
+    return {"a": 1, "b": 2, "c": 3}
+
+# Use the fixture in a test
+def test_key_exists(sample_data):
+    assert "a" in sample_data
+
+def test_value_check(sample_data):
+    assert sample_data["b"] == 2
+
+
+
+
+🔍 How It Works:
+@pytest.fixture marks the function as a fixture.
+sample_data is passed as an argument to the test functions.
+Pytest automatically calls the fixture and injects its return value into the test.
+
+
+
+Based on the Pytest in pytest.ini file we can add multiple markers and also we add the "addopts" which helps for showing the maxfailure in test file based on that the file stops after reaching certain failures of test, and for class we use python_classes = *Suite this will run all the classes that contains "Suite" in their class name.
+
+
+🎤 INTERVIEW-READY SUMMARY (Say This)
+
+“Pytest fixtures allow reusable setup and teardown logic.
+Fixture dependency means one fixture can depend on another, and Pytest automatically resolves the order.
+I use fixtures for browser setup, login, DB connections, authentication, and environment setup.
+Best practices include using yield for cleanup, using correct scopes, keeping fixtures modular, avoiding assertions inside fixtures, and using autouse fixtures for global setup like logs.
+This makes the automation framework scalable, readable, and maintainable.”
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+20. What is a test coverage report, and how do you generate it in Pytest?
+A test coverage report shows how much of your code is being covered by your tests.It is produced by a coverage tool, such as Coverage.py, which is integrated into Pytest. The --cov option and the path to the directory containing your code must be used in Pytest in order to generate a coverage report. For example:
+
+pytest --cov=my_module tests/
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+12. What is monkey patching in Pytest, and how do you use it?
+In Pytest, monkey patching is the practice of swapping out a function or variable for one that is particular to a given test. When you need to change a function's behavior to make it simpler to test, this can be helpful. Using the monkeypatch fixture, which offers ways to change properties and functions, monkeypatching is accomplished in Pytest. For example:
+
+def test_my_function(monkeypatch):
+    def mock_function():
+        return "mocked result"
+    monkeypatch.setattr("my_module.my_function", mock_function)
+    assert my_module.my_function() == "mocked result"
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+The short version
+
+
+Parametrized fixture (@pytest.fixture(params=...))
+Parametrizes setup data/behavior. Each test that depends on this fixture will run once per parameter. Think: “Run all tests against each browser.”
+
+
+Parametrize marker (@pytest.mark.parametrize(...))
+Parametrizes function inputs (arguments of the test function). Think: “Run this specific test with multiple input tuples.”
+
+
+
+
+PYTEST - BDD 
+-------------
+
+pytest BDD(Behaviour-Data Driven) which is similar to TDD(Test-Data Driven) in BDD we use when, then, and for writing the test scenario and test features steps to build certain test cases to develop.
+
+
+pytest BDD is not a standalone framework
+It uses Gherkin language with "when", "Then", "Given", "And"
+Same steps can be use in multiple places or scenarios
+Test module starts with same as pytest like test_ or _test.py
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+pytest.ini is a configuration file that defines default settings for pytest test runs, removing the need to repeatedly pass long command-line arguments. It is placed in the root directory of your project and takes precedence over other supported config files like pyproject.toml, tox.ini, or setup.cfg.
+
+By centralizing options, it ensures consistent test behavior across environments, CI/CD pipelines, and developer machines.
+
+Example basic structure:
+
+[pytest]
+minversion = 7.2
+addopts = -ra -q
+testpaths = tests
+Copy
+This sets the minimum pytest version, default CLI options, and test discovery paths.
+
+Common uses of pytest.ini:
+
+Logging configuration Control log output format, level, and date format globally:
+
+[pytest]
+log_cli = true
+log_level = DEBUG
+log_format = %(asctime)s %(levelname)s %(message)s
+log_date_format = %Y-%m-%d %H:%M:%S
+Copy
+Log file output Save all test logs to a file for debugging or CI traceability:
+
+[pytest]
+log_file = logs/pytest-logs.txt
+Copy
+Timeouts for slow tests Automatically fail tests exceeding a time limit:
+
+[pytest]
+timeout = 5
+Copy
+Environment variables Define variables accessible in all tests:
+
+[pytest]
+env =
+ENVIRONMENT=dev
+ACCOUNT=12345
+Copy
+Minimum pytest version Prevent running tests on unsupported versions:
+
+[pytest]
+minversion = 7.2
+Copy
+Required plugins Ensure essential plugins are installed before running:
+
+[pytest]
+required_plugins = pytest-xdist>=3.2.0 pytest-env<=0.8.0
+Copy
+Custom markers Tag tests for selective execution:
+
+[pytest]
+addopts = --strict-markers
+markers =
+core: marks tests as core (deselect with '-m "not core"')
+serial
+Copy
+Key points:
+
+Place pytest.ini in the project root for global effect.
+
+It overrides other config files if present.
+
+Ideal for standardizing test execution and reducing CLI complexity.
+
+Supports a wide range of built-in and plugin-specific options.
+
+If you want, I can provide a ready-to-use pytest.ini template optimized for logging, timeouts, and CI/CD pipelines. Would you like me to prepare that?
+

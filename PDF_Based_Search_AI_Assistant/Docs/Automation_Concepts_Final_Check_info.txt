@@ -1,0 +1,59 @@
+✅ Interview‑Important Topics Across All Frameworks ⭐⭐⭐⭐⭐
+
+PYTEST
+✅ Fixtures
+✅ Parametrization
+✅ Markers + pytest.ini
+✅ conf-test.py
+✅ Allure integration
+✅ Parallel execution
+
+-----------------------------------------------------------------
+
+
+SELENIUM
+✅ POM
+✅ Explicit waits
+✅ Handling dynamic elements
+✅ Locators strategy
+✅ Parallel execution
+✅ Screenshots
+
+-----------------------------------------------------------------
+
+
+API
+✅ Request/Response structure
+✅ Status code validation
+✅ Auth tokens
+✅ API framework design
+✅ Schema validation
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+✅ Areas Where Most Candidates FAIL ⚠️
+
+PYTEST
+⚠️ Fixture scope confusion
+⚠️ conftest.py usage
+⚠️ Parametrization errors
+⚠️ Markers not registered in pytest.ini
+
+-----------------------------------------------------------------
+
+
+SELENIUM
+⚠️ Incorrect waits → flaky tests
+⚠️ No POM usage
+⚠️ Hardcoded XPath
+⚠️ Parallel execution issues
+
+-----------------------------------------------------------------
+
+
+API
+⚠️ Confusion in headers/params/body
+⚠️ No framework structure
+⚠️ Incorrect auth token handling
