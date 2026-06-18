@@ -1,0 +1,148 @@
+you're a technical interviewer for a Software Engineer in Test based on the JD i will provide and myskill set list ask the questions accordingly
+
+What You'll Do
+• Agent Validation: Design and execute test strategies for AI agents, focusing on intent recognition, response accuracy, and state management.
+• Full-Stack Automation: Develop and maintain robust automated test suites using Python for both backend APIs and frontend interfaces.
+• End-to-End Testing: Ensure seamless integration between the agent's brain (LLM/Logic), the backend infrastructure, and the user-facing frontend.
+• Defect Lifecycle: Identify, document, and track bugs. Perform deep-dive troubleshooting and debugging to provide developers with actionable logs and root-cause analysis.
+• Global Collaboration: Coordinate with product managers and engineers across different time zones to ensure high-quality releases
+
+What You Will Bring to Coupa
+• Experience: 3+ years in professional Software Quality Assurance or Test Engineering.
+• Technical Proficiency: .
+
+Strong
+
+Python programming skills for automation.
+• Experience testing APIs (REST/GraphQL) and Frontend frameworks.
+• Familiarity with automation tools (e.g., Pytest, Selenium, Playwright, or Cypress).
+• Analytical Mindset: Exceptional debugging skills. You should be comfortable digging into container logs, network tabs, and database entries.
+• Adaptability: A proven track record of learning new technologies (like LLM frameworks or new cloud tools) with minimal guidance.
+• Communication: Excellent English communication skills to thrive in a globally distributed team.
+ 
+
+Based on JD my skill set is Python programming Proficient , Pytest and Selenium for both UI and API Automation and resume i will attach to you. Then shot out the question that should be highly match with the JD and you're really a recrituer for hiring this role .
+
+The above provided is Prompt to send in ChatGPT.
+
+Questions
+---------
+
+
+Round 1: Resume Deep Dive (Hiring Manager / Senior SDET)
+1. Python & Test Architecture
+
+You mentioned building UI and API automation using Python + Pytest.
+
+How do you structure a scalable Pytest framework for both UI and API tests?
+How do you handle shared fixtures across modules and environments?
+
+Can you explain a situation where poor test design caused flakiness, and how you fixed it at a framework level?
+
+How do you design data-driven tests in Pytest?
+
+When would you use @pytest.mark.parametrize vs external data sources like JSON/CSV?
+
+
+
+2. Selenium – Real-World UI Automation
+
+You reduced Selenium flakiness by 30%.
+
+What were the top 3 root causes of flakiness in your project?
+How did you handle dynamic DOMs and async UI updates?
+
+How do you design a Page Object Model that avoids duplication and improves maintainability?
+
+If a UI test passes locally but fails in CI, how do you debug it step by step?
+
+
+🔹 Round 2: API & Backend Testing (Strong Focus)
+3. API Automation (REST-heavy role)
+
+Walk me through how you design API automation using Pytest from scratch.
+
+How do you validate response schema, headers, auth, and contracts?
+
+How do you handle stateful API flows (create → update → delete) in automation?
+Have you tested APIs that interact with databases?
+How do you validate backend data correctness without breaking test isolation?
+
+
+4. Negative & Edge Case Thinking
+
+Give examples of negative test cases you always include for APIs.
+How do you ensure automation catches regression bugs, not just happy paths?
+
+🔹 Round 3: AI Agent & LLM Testing (Critical for This JD)
+
+This is where your resume gives you an edge.
+
+5. AI Agent Validation
+
+You worked on Agentic AI and LLM/SLM validation.
+
+How do you test intent recognition in an AI agent?
+How do you define expected behavior when output is probabilistic?
+
+How did you validate LLM outputs beyond simple string matching?
+
+What are failure modes you’ve seen in LLM-driven pipelines?
+
+
+6. RAG & Pipeline Testing
+Describe how you tested a RAG-based diagnosis pipeline end to end.
+
+What can go wrong at each stage: retrieve → ground → generate?
+
+How do you detect hallucinations or ungrounded responses in tests?
+
+How would you automate regression tests for AI agents when outputs evolve over time?
+
+
+🔹 Round 4: End-to-End & System-Level Thinking
+7. E2E Testing Across Stack
+The JD mentions agent brain + backend + frontend.
+
+How do you design an E2E test that validates all three without being brittle?
+When would you prefer API-level E2E tests over UI-driven ones?
+
+8. Observability & Debugging
+A test failed in production but automation didn’t catch it.
+What logs, metrics, and traces would you inspect first?
+
+How comfortable are you debugging using:
+Container logs?
+Network tab?
+Backend service logs?
+
+
+🔹 Round 5: Defect Lifecycle & Collaboration
+9. Debugging & RCA
+Describe a defect you found where developers initially disagreed.
+How did you prove it was a real bug?
+
+
+How do you write a high-quality defect report that engineers actually like?
+
+
+10. Collaboration & Ownership
+
+You work with global teams.
+
+How do you handle time-zone delays without blocking releases?
+
+If Product wants to ship but tests are failing intermittently, what do you do?
+
+
+🔹 Bonus: Scenario-Based “Decision” Questions (Coupa Style)
+
+An AI agent gives correct answers but in the wrong format.
+
+Is this a bug? Why or why not?
+
+An LLM output changes after a model version upgrade, but business intent is still satisfied.
+
+Should automation fail?
+
+If you had 2 weeks to improve agent test coverage, what would you prioritize and why?

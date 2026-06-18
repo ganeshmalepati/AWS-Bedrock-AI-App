@@ -1,0 +1,176 @@
+✅ PART 2: SELENIUM AUTOMATION ROADMAP (Python + Pytest)
+
+⭐ LEVEL 1: SELENIUM BASICS
+
+✅ What is Selenium?
+✅ Browser drivers
+✅ Locators (ID, Name, XPath, CSS) ⭐⭐⭐⭐⭐
+✅ Explicit Waits (WebDriverWait) ⭐⭐⭐⭐⭐
+✅ Handling
+
+alerts
+windows
+frames
+dropdowns
+
+
+
+⚠️ Common Confusion
+
+When to use XPath vs CSS
+Implicit wait vs explicit wait
+
+-------------------------------------------
+
+⭐ LEVEL 2: INTERMEDIATE (Core Automation)
+
+✅ Page Object Model (POM) ⭐⭐⭐⭐⭐
+✅ Custom Selenium wrapper utilities
+✅ Handling dynamic elements
+✅ Capturing screenshots
+✅ Logging
+✅ Headless browser execution
+✅ Browser options & capabilities
+
+⚠️ Common Confusion
+
+Incorrect POM structure
+Reusing WebDriver instance incorrectly
+Test flakiness due to poor waits
+
+------------------------------------------
+
+⭐ LEVEL 3: ADVANCED (Framework Level)
+
+✅ Selenium + Pytest integration
+✅ Session-level driver management
+✅ Parallel execution (pytest-xdist)
+✅ Screenshot attachments in Allure ⭐⭐⭐⭐⭐
+✅ CI/CD execution (Jenkins/GitHub Actions)
+✅ Cross-browser testing
+✅ Using Selenium Grid / Docker
+
+⚠️ Common Confusion
+
+Managing multiple drivers
+Handling parallel execution
+Browser state persistence
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+🚀 2. SELENIUM ROADMAP (UI AUTOMATION)
+
+🟢 Beginner Level
+What is Selenium WebDriver
+Browser drivers
+Locators:
+Locator	Example
+ID	driver.find_element(By.ID, "id")
+XPath	//div[@id='test']
+CSS	div.class
+
+⭐ MOST IMPORTANT: XPath & CSS
+
+⚠️ Confusion:
+
+Absolute vs Relative XPath
+
+----------------------------------------
+
+
+🟡 Intermediate Level
+WebElement Handling
+click()
+send_keys()
+get_text()
+Waits (🔥 VERY IMPORTANT)
+Implicit wait
+Explicit wait (WebDriverWait)
+WebDriverWait(driver, 10).until(
+    EC.visibility_of_element_located((By.ID, "id"))
+)
+
+⭐ Interview:
+
+Implicit vs Explicit wait (VERY COMMON)
+
+⚠️ Confusion:
+
+Mixing waits → unstable tests
+
+----------------------------------------------------
+
+Handling Components
+Dropdowns (Select)
+Alerts
+Frames
+Windows/Tabs
+
+⭐ Interview:
+
+window vs window_handles
+
+-----------------------------------------------------
+
+
+🔵 Advanced Level
+Actions Class
+Drag & Drop
+Hover
+Keyboard actions
+JavaScript Executor
+driver.execute_script("arguments[0].click();", element)
+
+⚠️ Confusion:
+
+When Selenium fails → use JS
+Handling Dynamic Elements
+Dynamic XPath
+Retry logic
+
+--------------------------------------------------------
+
+
+🔴 Framework Design (🔥 CRITICAL)
+Page Object Model (POM)
+class LoginPage:
+    def login(self):
+        pass
+Components
+Base Page
+Driver Factory
+Config Reader
+Logger
+
+⭐ Interview:
+
+Why POM?
+Advantages (reusability, maintainability)
+Advanced Framework
+Hybrid framework (POM + Data-driven)
+Environment config (QA/UAT/Prod)
+CI/CD integration (Jenkins)
+
+---------------------------------------------------------
+
+
+🎯 SELENIUM INTERVIEW HOT TOPICS
+Waits (🔥 #1)
+XPath strategies
+POM design
+Handling dynamic elements
+Flaky test debugging
+
+---------------------------------------------------------
+
+
+⚠️ COMMON STUCK AREAS
+StaleElementReferenceException
+Synchronization issues
+Dynamic XPath writing
+Multi-window handling

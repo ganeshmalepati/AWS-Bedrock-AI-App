@@ -1,0 +1,56 @@
+✅ PART 3: API AUTOMATION ROADMAP (Python + Pytest + Requests)
+
+⭐ LEVEL 1: API BASICS
+
+✅ HTTP Methods (GET, POST, PUT, DELETE, PATCH)
+✅ Status codes
+✅ Headers, cookies, query params, JSON payloads
+✅ JSON vs XML
+
+
+---------------------------------------------------------------
+
+
+
+⭐ LEVEL 2: API TESTING WITH PYTHON/REQUESTS
+
+✅ GET/POST/PUT/PATCH/DELETE requests
+✅ Handling:
+
+authentication
+tokens
+sessions
+
+
+✅ Validating response body
+✅ Validating schema
+✅ Validating headers & cookies
+✅ Attaching API responses in Allure ⭐⭐⭐⭐⭐
+
+⚠️ Common Confusion
+
+Difference between params and data
+Sending payload vs JSON
+Session reuse vs new requests
+
+
+---------------------------------------------------------------------
+
+
+
+⭐ LEVEL 3: API FRAMEWORK DEVELOPMENT
+
+✅ BaseClient class for APIs
+✅ Session-level token generation
+✅ Response validator utility
+✅ Environment config
+✅ Logging requests & responses
+✅ Retrying flaky API calls
+✅ Mocking APIs (responses library)
+✅ Integration testing
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

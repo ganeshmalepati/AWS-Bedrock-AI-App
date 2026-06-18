@@ -1,0 +1,405 @@
+2. How do you communicate release risk to non-technical stakeholders?
+3. A critical bug escaped to production despite automation. What questions do you ask first?
+4. How do you prevent similar bugs without simply adding more test cases?
+5. If all automated tests are green, can the product still be broken? Explain.
+6. What quality metrics actually matter in real projects?
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+🖥️ UI Testing
+• Validates user interface behavior and interactions
+• Ensures buttons, forms, layouts, and workflows function correctly
+• Simulates real user behavior
+• Slower to execute and more fragile when UI changes occur
+
+🔗 API Testing
+• Validates business logic, data flow, and backend services
+• Verifies requests, responses, status codes, and data accuracy
+• Faster, more stable, and independent of UI changes
+• Detects defects earlier in the development lifecycle
+
+✅ Key Takeaway
+API testing ensures the system’s core functionality is reliable, while UI testing confirms a smooth user experience. A strong automation strategy includes both — but not in equal proportion.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Explaining 9 types of API testing. 
+ 
+🔹 Smoke Testing 
+This is done after API development is complete. Simply validate if the APIs are working and nothing breaks. 
+ 
+🔹 Functional Testing 
+This creates a test plan based on the functional requirements and compares the results with the expected results. 
+ 
+🔹 Integration Testing 
+This test combines several API calls to perform end-to-end tests. The intra-service communications and data transmissions are tested. 
+ 
+🔹 Regression Testing 
+This test ensures that bug fixes or new features shouldn’t break the existing behaviors of APIs. 
+ 
+🔹 Load Testing 
+This tests applications’ performance by simulating different loads. Then we can calculate the capacity of the application. 
+ 
+🔹 Stress Testing 
+We deliberately create high loads to the APIs and test if the APIs are able to function normally. 
+ 
+🔹 Security Testing 
+This tests the APIs against all possible external threats. 
+ 
+🔹 UI Testing 
+This tests the UI interactions with the APIs to make sure the data can be displayed properly. 
+ 
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ What is Integration Testing?
+
+Integration Testing is a software testing phase where individual modules or components are combined and tested as a group to ensure they work correctly when interacting with each other.
+
+💡 What does it mean in simple terms?
+Think of an application like a car:
+
+The engine works on its own
+The brakes work on their own
+The dashboard works on its own
+
+But what matters is: do they work correctly together?
+Integration Testing checks exactly that.
+
+API calls between services might break
+Workflows may not behave as expected end‑to‑end
+
+
+📝 Simple Example
+You have a login flow:
+
+User enters email & password
+Backend validates credentials
+Database checks user record
+User gets logged in
+
+Each step may work individually, but Integration Testing ensures that:
+
+The UI correctly sends data to the backend
+Backend correctly queries the database
+Database returns correct results
+Response comes back properly
+
+Everything should work together, not just alone.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ Difference Between Verification and Validation
+
+1. Verification – “Are we building the product right?”
+Verification is about checking the quality of the product during development.
+It ensures that the software meets the specified requirements, standards, and design documents.
+
+✔ Key idea:
+It ensures you are building the product correctly according to the plan.
+
+2. Validation – “Are we building the right product?”
+Validation is about checking the actual product after development.
+It ensures the software meets the user's needs and expectations.
+
+✔ Key idea:
+It ensures you are building the correct product that the user actually wants.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Unit Tests -> Integration Tests -> UI Tests
+
+Unit Tests – Base layer
+
+Test individual functions or methods.
+
+Fast and cheap to run.
+
+Integration Tests – Middle layer
+
+Test interaction between modules or services.
+
+UI Tests (End-to-End Tests) – Top layer
+
+Test the entire application through the user interface.
+
+Slower and more expensive to maintain.
+
+Pyramid Structure:
+
+Bottom: Unit Tests
+
+Middle: Integration Tests
+
+Top: UI Tests
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Defect (Bug) – A problem in the code or design
+
+A defect is an error or flaw in the software’s code, logic, requirement, or design that is discovered during the development or testing phase.
+👉 A defect may or may not cause a failure unless that part of the system is executed.
+
+✔ Example of a Defect:
+
+The requirement says: "The system should accept passwords up to 16 characters."
+The developer writes code that allows only 12 characters.
+
+
+2. Failure – When the software behaves incorrectly during execution
+
+A failure occurs when the system does not perform the expected function during execution, often because a defect was triggered.
+👉 A failure is the observable effect of a defect when the system runs.
+
+✔ Example of a Failure:
+
+A user tries to set a 16‑character password.
+The system rejects it or crashes.
+
+This incorrect behavior is a failure caused by the defect.
+
+
+🎯 Real‑Life Example to Make It Clear
+📌 Scenario:
+A billing system should calculate total bill = price × quantity.
+🐞 Defect:
+Developer writes:
+Javatotal = price + quantity ; Show more lines
+This is wrong logic → defect in code.
+❌ Failure:
+User buys 3 items priced at ₹100 each.
+Instead of showing ₹300, system shows ₹103.
+This incorrect output is a failure.
+
+
+🎉 Final Summary
+
+Defect = mistake in the code/design
+Failure = wrong behavior the user sees because of the defect
+
+A defect becomes a failure only when executed.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+During user acceptance testing, you find a major defect that affects the core functionality of the application. The development team confirms it is a defect but has estimated that it will take more than a week to fix.
+
+Perform a risk analysis, assess the impact, and accept the release conditionally while planning the next fix.
+
+Explanation:
+
+During User Acceptance Testing (UAT), if a major defect is found:
+
+The team should analyze the risk and business impact.
+
+Decide whether the release can proceed with a workaround or temporary mitigation.
+
+The defect should be scheduled for a fix in the next release or patch.
+
+This approach is common in real-world release management where deadlines and business needs must be balanced with quality
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+software development team has completed building a new online shopping application. The testing team is asked to prioritize tasks for testing the application.
+
+Focus first on integration testing to check if all modules work together.
+
+Explanation:
+
+Since the development team has already completed building the application, the next priority for the testing team is to verify that different components of the system interact correctly.
+
+Integration Testing checks communication between modules such as:
+
+Product catalog
+
+Payment gateway
+
+Cart service
+
+Order management
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+A test suite has: 3 tests pass, 1 test fails, 1 test is skipped. What is the pass
+
+Total tests = 3 (pass) + 1 (fail) + 1 (skipped) = 5
+
+Usually pass rate = (Passed Tests / Executed Tests) × 100
+Skipped tests are not counted as executed.
+
+Executed tests = 3 pass + 1 fail = 4
+
+Pass rate = (3 / 4) × 100 = 75%
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+API_Automation
+--------------
+
+
+API Testing verifies the functionality, performance, and security of application programming interfaces (APIs) by sending requests and validating responses. It is important because APIs enable communication between systems, and testing ensures the reliability and correctness of the software product.
+
+
+
+
+5. What are the Different Types of API Testing?
+Here are the different types of API testing :
+
+Functional Testing: Checks if the API functions correctly according to the requirements.
+Load Testing: Tests how the API performs under heavy load or many simultaneous requests to check its stability and responsiveness.
+Security Testing: Ensures the API is protected against threats like unauthorized access, injection attacks, and data leaks.
+Reliability Testing: Verifies that the API can handle requests consistently over time without failures.
+Validation Testing: Confirms that the API returns the expected results and follows the correct data format and protocols.
+Error Handling Testing: Checks how the API responds to invalid inputs or unexpected conditions, making sure it handles errors gracefully.
+Interoperability Testing: Ensures the API works well across different devices, platforms, or systems that interact with it.
+Documentation Testing: Reviews the API documentation to ensure it is accurate, complete, and easy to understand for developers.
+
+
+32. How do you handle error responses in your API tests?
+Handling Error Responses in API Testing:
+
+Validate HTTP Status Codes: Ensure correct 4xx (client errors) and 5xx (server errors) are returned.
+Check Error Messages: Verify meaningful, user-friendly error messages.
+Test Edge Cases: Send invalid inputs, missing parameters, and malformed requests.
+Implement Retry Mechanism: Retry requests for temporary failures (5xx errors).
+Monitor & Log Errors: Use tools like Postman, JMeter to track failures.
+Respect Rate Limits (429): Implement delays or follow Retry-After headers.
+Secure Error Handling: Ensure no sensitive data is leaked in error responses.
+
+
+39. What is API performance testing?
+API Performance Testing evaluates an API’s speed, scalability, and reliability under different loads and conditions. It ensures that the API responds efficiently and remains stable under varying traffic levels.
+
+Response Time: Measures how quickly the API responds.
+Throughput: Checks the number of requests handled per second.
+Load Testing: Simulates high user traffic to check performance.
+Stress Testing: Determines API behavior under extreme conditions.
+Spike Testing: Evaluates API response to sudden traffic surges.
+
+
+49. What are the different bugs that can be found in API testing?
+Different Bugs Found in API Testing:
+
+Duplicate or missing functionality.
+Improper messaging.
+Multi-threading issues.
+Security and performance issues.
+Reliability issues.
+
+
+48. List the challenges faced while performing API testing.
+Building irrelevant tests: Building tests without considering how the APIs will be consumed may be quicker in short term.
+Initial setup of API testing: Setting up an API testing setup requires certain level of expertise and dedication among the team members.
+Not including API dependencies: Failure to include API dependencies as a part of API testing strategy can be a critical API testing challenge.
+Not validating data: It might be possible that API tests pass successfully but APIs are not returning the correct data in their responses.
+
+6. How do you prioritize API test cases for regression testing?
+Critical Functionality First: Focus on core APIs that impact business operations.
+Frequently Used APIs: Test APIs that are accessed most often by users.
+Recently Changed or Updated APIs: Prioritize APIs modified in recent updates.
+APIs with High Bug History: Retest APIs that previously had defects.
+Security and Authentication APIs: Ensure no vulnerabilities are introduced.
+Performance-Critical APIs: Validate APIs affecting system speed and scalability.
+Dependent APIs: Test APIs that interact with multiple services or components.
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+python -m pytest --alluredir allure-results
+
+
+
+import allure
+
+@allure.title("Test Authentication")
+@allure.description("This test attempts to log into the website using a login and a password. Fails if any error happens.\n\nNote that this test does not test 2-Factor Authentication.")
+@allure.tag("NewUI", "Essentials", "Authentication")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.label("owner", "John Doe")
+@allure.link("https://dev.example.com/", name="Website")
+@allure.issue("AUTH-123")
+@allure.testcase("TMS-456")
+def test_authentication():
+    ...
+
+
+✔ 4. Assign Severity Level
+Use to categorize tests:
+Python@allure.severity(allure.severity_level.CRITICAL)def test_critical_flow():    assert TrueShow more lines
+Severity types:
+
+blocker
+critical
+normal
+minor
+trivial
+
+
+Topic			Summary
+
+What is Allure?		Beautiful HTML test reporting framework
+Why use it?		Screenshots, steps, logs, severity, API/CI integration
+Commands		pytest --alluredir=allure-results + allure serve
+Annotations		steps, attachments, severity, story, epic
+Use cases		UI tests, API tests, CI/CD pipelines
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------

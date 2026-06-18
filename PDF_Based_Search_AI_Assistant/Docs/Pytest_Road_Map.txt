@@ -1,0 +1,101 @@
+🚀 1. PYTEST COMPLETE ROADMAP
+🟢 Beginner Level (Foundation)
+Python basics (must be strong)
+Installing pytest
+Test discovery rules (test_*.py, *_test.py)
+Basic test functions
+Assertions
+def test_add():
+    assert 2 + 3 == 5
+
+⭐ Important for Interview
+
+Assertion rewriting in pytest
+Difference: assert vs unittest assertions
+
+⚠️ Confusion Area
+
+Why pytest doesn’t need classes (unlike unittest)
+🟡 Intermediate Level
+Fixtures (🔥 VERY IMPORTANT)
+@pytest.fixture
+Scope → function, class, module, session
+yield vs return
+Autouse fixtures
+@pytest.fixture(scope="function")
+def setup():
+    print("Setup")
+    yield
+    print("Teardown")
+
+⭐ Interview:
+
+Fixture vs setup/teardown (unittest)
+Fixture dependency injection
+
+⚠️ Confusion:
+
+Scope misuse → causes flaky tests
+Parameterization
+@pytest.mark.parametrize("a,b,expected", [(1,2,3), (2,3,5)])
+def test_add(a,b,expected):
+    assert a + b == expected
+
+⭐ Interview:
+
+Why parametrize is better than loops
+Markers
+@pytest.mark.smoke
+@pytest.mark.skip
+@pytest.mark.xfail
+
+⚠️ Confusion:
+
+Skip vs xfail
+🔵 Advanced Level
+PyTest Hooks (🔥 HIGH VALUE)
+pytest_runtest_setup
+pytest_runtest_call
+pytest_sessionstart
+
+⭐ Interview:
+
+How to customize test execution
+Plugins
+pytest-html
+pytest-xdist (parallel execution)
+pytest-rerunfailures
+
+⭐ Interview:
+
+Parallel execution strategies
+Logging & Reporting
+--html=report.html
+Python logging integration
+🔴 Real-Time Framework Design (🔥 MUST KNOW)
+
+Structure:
+
+project/
+│
+├── tests/
+├── pages/
+├── utils/
+├── config/
+├── conftest.py
+├── pytest.ini
+Key Concepts
+conftest.py (🔥 MOST ASKED)
+Base test class
+Environment handling
+Data-driven testing
+
+⚠️ Confusion:
+
+When to use conftest.py vs import
+🎯 PYTEST INTERVIEW HOT TOPICS
+Fixtures (scope + dependency)
+Parametrize
+conftest.py usage
+Hooks
+Parallel execution
