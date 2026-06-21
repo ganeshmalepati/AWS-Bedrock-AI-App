@@ -28,7 +28,7 @@ def load_urls(file_path="urls.txt"):
 
 @st.cache.resource
 def get_vectorstore():
-    urls = load_urls
+    urls = load_urls()
 
     embeddings = BedrockEmbeddings(
         model_id="amazon.titan-embed-text-v2:0",
@@ -73,17 +73,32 @@ def llm():
     )
 
 prompt = ChatPromptTemplate.from_template(
-    """
-    You are an intelligent assistant.
-    Use only the context below.If answer not found, say "I don't know".
+"""
+You are a senior technical trainer, research assistant, and web knowledge expert.
 
-    <context>
-    {context}
-    </context>
-    
-    Question: {input}
-    """
-    )
+Instructions:
+
+1. Use ONLY the supplied context.
+2. Do NOT make up information.
+3. Combine information from multiple sources when relevant.
+4. Provide a natural explanation instead of listing chunks.
+5. Explain concepts clearly and in a teaching style.
+6. Mention important details when available.
+7. If multiple websites contain useful information, synthesize them into one answer.
+
+If the answer does not exist in the context, reply exactly:
+
+I don't know based on the retrieved web pages.
+
+Context:
+{context}
+
+Question:
+{input}
+
+Answer:
+"""
+)
 
 def stream_response(chain, query):
     response = chain.invoke({"input":query})
@@ -101,17 +116,23 @@ with st.sidebar:
 
 vectorstore = get_vectorstore()
 
-retriver = vectorstore.as_retriver(
-    search_type = "mmr",
-    search_kwargs = {"k":k_value, "fetch_k":10}
+retriver = vectorstore.as_retriever(
+    search_type="mmr",
+    search_kwargs={
+        "k": k_value,
+        "fetch_k": 20,
+        "lambda_mult": 0.7
+    }
 )
 
 get_llm = llm()
 
-doc_chain = create_stuff_documents_chain(llm, prompt)
+doc_chain = create_stuff_documents_chain(get_llm, prompt)
 retrival_chain = create_retrieval_chain(retriver, doc_chain)
 
-query = st.text_input("💬 Ask your question:")
+query = st.chat_input(
+    "Ask questions from web sources..."
+)
 
 if query:
     # Debug retrieval ✅
