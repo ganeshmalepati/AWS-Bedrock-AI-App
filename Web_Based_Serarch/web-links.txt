@@ -30,6 +30,21 @@ https://www.theknowledgeacademy.com/blog/aws-interview-questions/
 
 https://www.interviewbit.com/aws-interview-questions/
 
+https://medium.com/@visrow/how-to-design-a-rag-pipeline-for-10-million-documents-with-zero-hallucination-live-demo-057e37bcdbf6
+
+https://machinelearningmastery.com/how-to-build-a-multi-agent-research-assistant-in-python/
+
+https://machinelearningmastery.com/building-vector-similarity-search-in-postgresql-with-pgvector/
+
+https://app.thetestingacademy.com/ai/n8n-tutorial
+
+https://machinelearningmastery.com/llm-observability-tools-for-reliable-ai-applications/
+
+https://machinelearningmastery.com/llm-embeddings-vs-tf-idf-vs-bag-of-words-which-works-better-in-scikit-learn/
+
+https://www.freecodecamp.org/news/build-end-to-end-llm-observability-in-fastapi-with-opentelemetry/
+
+
 https://adilshamim8.medium.com/top-20-rag-interview-questions-every-ai-engineer-should-know-3261313c4472
 
 https://www.datacamp.com/blog/agentic-ai-interview-questions
