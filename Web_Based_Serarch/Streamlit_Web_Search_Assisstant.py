@@ -50,8 +50,8 @@ def get_vectorstore():
         doc.metadata["source"]=urls[i]
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size = 1000
-        chunk_overlap = 100
+        chunk_size = 750,
+        chunk_overlap = 150
     )
 
     documents = splitter.split_documents(docs)
@@ -65,7 +65,7 @@ def llm():
     return ChatBedrock(
         model_id = "meta.llama3-70b-instruct-v1:0",
         region_name = "us-east-1",
-        streaming = True
+        streaming = True,
         model_kwargs = {
             "temperature":0.5,
             "max_gen_len":1000
@@ -110,7 +110,7 @@ st.title("Web RAG Search (Streaming UI)")
 st.write("Ask Questions from the web sources")
 
 with st.sidebar:
-    st.sidebar("Settings")
+    st.header("Settings")
     debug_mode = st.toggle("Debug Retrival")
     k_value = st.slider("Top-K Results", 1, 10, 5)
 
@@ -138,7 +138,7 @@ if query:
     # Debug retrieval ✅
     if debug_mode:
         st.subheader("🔍 Retrieved Context")
-        docs = retriver.get_relevant_documents(query)
+        docs = retriver.invoke(query)
 
         for i, d in enumerate(docs):
             st.markdown(f"**Result {i+1}**")
