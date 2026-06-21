@@ -26,7 +26,6 @@ def load_urls(file_path="urls.txt"):
         return [line.strip() for line in f if line.strip()]
     
 
-@st.cache.resource
 def get_vectorstore():
     urls = load_urls()
 
