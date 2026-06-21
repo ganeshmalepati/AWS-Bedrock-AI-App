@@ -73,48 +73,74 @@ retriver = vector_store.as_retriver(
 )
 
 
-def debug_retriver(query):
-    print("\n🔎 DEBUG RETRIEVAL\n")
-    documents = retriver.get_relevant_documents(query)
-    for i, d in enumerate(documents):
-        print(f"\n--Result--{i+1}")
-        print("soruce:", d.metadat.get("source", "N/A"))
-        print(d.page_content[:300], "...")
+def debug_retrieval(query):
+    docs = retriever.get_relevant_documents(query)
 
-    
+    print(f"\nRetrieved {len(docs)} docs")
+
+    for i, doc in enumerate(docs):
+        print("="*50)
+        print(f"Doc {i+1}")
+        print(doc.metadata)
+        print(doc.page_content[:500])
+
+
+
 llm = ChatBedrock(
-    model_id = "meta.llama3-70b-instruct-v1:0",
-    region_name = "us-east-1",
-    model_kwargs = {
-        "temperature": 0.6,
-        "max_gen_len":1000
+    model_id= "meta.llama3-70b-instruct-v1:0",
+    region_name="us-east-1",
+    model_kwargs={
+        "temperature":0.5,
+        "max_gen_len":2000
+    }
+
+)
+
+
+prompt = ChatPromptTemplate.from_template(
+"""
+You are a senior technical trainer and interview expert.
+
+Instructions:
+
+1. Use ONLY the supplied context.
+2. Do NOT make up information.
+3. Combine information from multiple web-links when relevant.
+4. Provide a natural explanation instead of listing chunks.
+5. Explain concepts clearly as if teaching an interview candidate.
+
+If the answer does not exist in the context, reply exactly:
+
+I don't know based on the provided documents.
+
+Context:
+{context}
+
+Question:
+{input}
+
+Answer:
+"""
+)
+
+
+document_chain = create_stuff_documents_chain(
+    llm,
+    prompt
+)
+
+retrieval_chain = create_retrieval_chain(
+    retriever,
+    document_chain
+)
+
+
+query = "what are subqueries in mysql, how can we define it, explain it with real time example?"
+
+response = retrieval_chain.invoke(
+    {
+        "input": query
     }
 )
 
-prompt = ChatPromptTemplate(
-"""
-You are an intelligent assisstant
-
-Use only the context below to answer.
-If not found, say "I don't know"
-
-<context>
-{context}
-<context>
-
-Question:{input}
-
-Answer Clearly:
-"""
-)
-
-doc_chain = create_stuff_documents_chain(llm, prompt)
-retrival_chain = create_retrieval_chain(retriver, doc_chain)
-
-query = "Who is sai pallavi, what are her best movies?"
-
-debug_retriver(query=query)
-
-response = retrival_chain.invoke({"input":query})
-print("FINAL RESPONSE")
 print(response["answer"])
